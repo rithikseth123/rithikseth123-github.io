@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    {{ category.name }}
+{% endblock title %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'website/category_filter.css' %}">
+{% endblock css_files %}
+{% block content %}
+    <div class="product-container">
+        {% for product in sorted_category %}
+            <a href="{% url 'single-product' product.slug %}" class="product-item">
+                <div>
+                    <div class="product-name">{{ product.name }}</div>
+                    <div class="product-price">{{ product.cost }}/-</div>
+                    <img src="{{ product.image.url }}"
+                         alt="Product Image"
+                         class="product-image">
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock content %}

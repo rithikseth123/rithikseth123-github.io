@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    OtisGreen&trade;
+{% endblock title %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "website/index.css" %}">
+{% endblock css_files %}
+{% block content %}
+    <a href="{% url "category" %}"class="atag">
+        <h1 class="section-title">Category</h1>
+    </a>
+    <div class="container">
+        {% for category in all_category %}
+            <a href="{% url 'sort-category' category.slug %}" class="category-link">
+                <div class="card category-card">
+                    <img src="{{ category.image.url }}" alt="{{ category.name }} Image">
+                    <p class="category-name">{{ category.name }}</p>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    <a href="{% url "all-product" %}" class="atag">
+        <h1 class="section-title">Best Selling</h1>
+    </a>
+    <div class="container">
+        {% for product in products %}
+            <div class="card">
+                <a href="{% url "single-product" product.slug %}" class="product-link">
+                    <img src="{{ product.image.url }}" alt="Product Image">
+                    <h2>{{ product.name |slice:":30" }}...</h2>
+                    <p class="category-name">{{ product.category }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

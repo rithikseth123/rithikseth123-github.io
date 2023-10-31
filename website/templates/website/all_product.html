@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    All Products
+{% endblock title %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "website/product.css" %}">
+    <style>
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+{% endblock css_files %}
+{% block content %}
+    <div class="product-container">
+        {% for product in products %}
+            <a href="{% url "single-product" product.slug %}"
+               class="product-link"
+               id="product-{{ product.pk }}">
+                <div class="product-card">
+                    <img src="{{ product.image.url }}"
+                         alt="Product Image"
+                         class="product-image">
+                    <div class="product-info">
+                        <span class="product-name">{{ product.name }}</span>
+                        <br>
+                        <span class="product-date">₹{{ product.cost }}/-</span>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock content %}

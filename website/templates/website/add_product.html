@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Add Product
+{% endblock title %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "website/add_product.css" %}">
+{% endblock css_files %}
+{% block content %}
+    <form action="{% url "add-product" %}"
+          method="POST"
+          enctype="multipart/form-data"
+          class="add-product-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="add-product-button">Add Product</button>
+    </form>
+{% endblock content %}

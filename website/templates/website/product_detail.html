@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    {{ product.name }}
+{% endblock title %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'website/product_detail.css' %}">
+{% endblock css_files %}
+{% block content %}
+    <div class="container">
+        <div class="product-container">
+            <div class="product-details">
+                <img src="{{ product.image.url }}"
+                     alt="Product Image"
+                     width="100px"
+                     class="product-image">
+                <br>
+                <span class="product-name">{{ product.name }}</span>
+                <br>
+                Category: <span class="product-category"><a href="{% url 'sort-category' product.category.slug %}">{{ product.category }}</a></span>
+                <br>
+                Price: <span class="product-price">{{ product.cost }} INR</span>
+                <br>
+                Date: <span class="product-date">{{ product.date }}</span>
+                <br>
+                About Product:
+                <p class="product-description">Sizes|M,L,Xl,Xxl</p>
+                <p class="product-description">{{ product.description | linebreaks }}</p>
+                <a href="{% url "buy-form" %}">
+                    <button class="add-product-button"
+                            style="background-color: #FF5733;
+                                   color: #FFFFFF;
+                                   font-weight: bold">Buy Now</button>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

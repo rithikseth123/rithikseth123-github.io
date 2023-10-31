@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Thank You
+{% endblock title %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'website/thank_you.css' %}">
+{% endblock css_files %}
+{% block content %}
+    <div class="thank-you-container">
+        <div class="message">{{ message }}</div>
+    </div>
+{% endblock content %}

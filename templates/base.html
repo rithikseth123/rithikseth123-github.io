@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title %}{% endblock %}
+        </title>
+        <link rel="stylesheet" href="{% static "app.css" %}">
+        <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+        {% block css_files %}
+        {% endblock css_files %}
+    </head>
+    <body>
+        <header id="main-navigation" class="main-header">
+            <h1>
+                <a href="{% url "main-page" %}" class="logo">OtisGreen&trade;</a>
+            </h1>
+            <nav class="main-menu">
+                <a href="{% url "all-product" %}" class="menu-item">All Products</a>
+                <a href="{% url "recent-product" %}" class="menu-item">Recent Products</a>
+                <a href="{% url "category" %}" class="menu-item">Category</a>
+                <a href="{% url "add-product" %}" class="menu-item">Add product</a>
+            </nav>
+        </header>
+        {% block content %}
+        {% endblock content %}
+        <footer class="main-footer">
+            Official Site <a href="{% url "main-page" %} " class="footer-link"style="color:white;">&copy;OtisGreen</a>
+        </footer>
+    </body>
+</html>

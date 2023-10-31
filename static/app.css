@@ -1,0 +1,99 @@
+/* Reset some default styles */
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Set a nice font for the text */
+
+body {
+    font-family: "Helvetica", sans-serif;
+}
+
+
+/* Style the header */
+
+.main-header {
+    text-decoration: none;
+    background-color: #6B8E23;
+    /* This will give a semi-transparent green */
+    /* Dark Blue */
+    color: #ecf0f1;
+    /* Light Gray */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo:hover {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+.main-header .logo {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.main-header .menu-item {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+
+/* Style the navigation menu */
+
+.main-menu {
+    display: flex;
+}
+
+
+/* Style the content area */
+
+.content {
+    padding: 20px;
+}
+
+
+/* Style the footer */
+
+.main-footer {
+    background-color: #6B8E23;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* Add space between menu items and apply hover effect */
+
+.main-menu .menu-item {
+    margin-left: 20px;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.main-menu .menu-item:hover {
+    color: #e74c3c;
+    /* Red color for hover effect */
+}
+
+
+/* Add some space between header and content */
+
+.main-header {
+    margin-bottom: 20px;
+}
